@@ -1,0 +1,7 @@
+scenario,method,precision,recall,f1_score,tp,fp,fn
+burst_hotspot,LightKubeGuard,0.2732,1.0,0.4292,50,133,0
+burst_hotspot,Threshold,0.4105,0.78,0.5379,39,56,11
+memory_stress,LightKubeGuard,0.082,0.2143,0.1186,15,168,55
+memory_stress,Threshold,0.1895,0.2571,0.2182,18,77,52
+network_instability,LightKubeGuard,0.4317,0.9875,0.6008,79,104,1
+network_instability,Threshold,0.4,0.475,0.4343,38,57,42

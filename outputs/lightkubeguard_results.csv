@@ -1,0 +1,3 @@
+method,precision,recall,f1_score,fpr,avg_detection_delay,tp,fp,tn,fn,roc_auc
+LightKubeGuard,0.7869,0.72,0.752,0.0488,4.33,144,39,761,56,0.9615
+Threshold,1.0,0.475,0.6441,0.0,2.33,95,0,800,105,
