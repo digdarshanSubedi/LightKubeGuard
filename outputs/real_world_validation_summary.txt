@@ -1,0 +1,22 @@
+======================================================================
+NAB REAL-WORLD VALIDATION SUMMARY
+======================================================================
+
+Dataset: nab_cpu_utilization_asg_misconfiguration
+Total Samples Analyzed: 18031
+Anomaly Prevalence: 8.31%
+
+Performance Metrics:
+----------------------------------------------------------------------
+Precision: 0.5274
+Recall: 0.6157
+F1-Score: 0.5682
+False Positive Rate: 0.0500
+ROC-AUC: 0.8510
+Average Detection Delay: 13.00 timesteps
+
+======================================================================
+INTERPRETATION
+======================================================================
+
+This validation demonstrates LightKubeGuard's effectiveness on real-world data from the Numenta Anomaly Benchmark (NAB). The model was trained on normal-only samples and evaluated on the full dataset including labeled anomaly windows.

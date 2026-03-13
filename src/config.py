@@ -83,3 +83,18 @@ OUTPUTS = {
     "delay_plot":            os.path.join(_BASE, "detection_delay.png"),
     "roc_curve_plot":        os.path.join(_BASE, "roc_curve.png"),
 }
+
+# ─── Real-World Validation (NAB Dataset) ──────────────────────────────────────
+ENABLE_REAL_WORLD_VALIDATION = True
+
+REAL_WORLD_DATASET_NAME = "nab_cpu_utilization_asg_misconfiguration"
+_DATA_BASE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data")
+
+REAL_WORLD_DATA = {
+    "enabled":           ENABLE_REAL_WORLD_VALIDATION,
+    "csv_path":          os.path.join(_DATA_BASE, "real_world", "nab", "cpu_utilization_asg_misconfiguration.csv"),
+    "labels_path":       os.path.join(_DATA_BASE, "real_world", "nab", "combined_windows.json"),
+    "output_plot":       os.path.join(_BASE, "real_world_validation_plot.png"),
+    "output_summary":    os.path.join(_BASE, "real_world_validation_summary.txt"),
+    "output_results":    os.path.join(_BASE, "real_world_validation_results.csv"),
+}

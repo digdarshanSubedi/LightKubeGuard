@@ -121,6 +121,61 @@ jupyter nbconvert --to notebook --execute notebooks/experiment_pipeline.ipynb \
 
 ---
 
+## Real-World Validation (NAB Dataset)
+
+LightKubeGuard includes an optional real-world validation step using the Numenta Anomaly Benchmark (NAB).
+
+### What it does
+
+- Loads real-world CPU utilization data with labeled anomaly windows
+- Extracts sliding-window features from the univariate time series
+- Runs the Isolation Forest model on the real data
+- Computes Precision, Recall, F1, FPR, and ROC-AUC
+- Generates a publication-ready plot and summary
+
+### Enabling it
+
+In `src/config.py`, set:
+```python
+ENABLE_REAL_WORLD_VALIDATION = True
+```
+
+When you run `python -m src.main`, the pipeline will:
+1. Execute the synthetic experiment (as usual)
+2. Automatically download NAB files if missing
+3. Run real-world validation
+
+**Note:** The code downloads files from GitHub only if they are not already present locally.
+
+### NAB Dataset
+
+The real-world dataset comes from:
+- **CSV:** `cpu_utilization_asg_misconfiguration.csv` — CPU utilization time series (627 samples)
+- **Labels:** `combined_windows.json` — Anomaly window definitions
+
+Local paths:
+```
+data/real_world/nab/cpu_utilization_asg_misconfiguration.csv
+data/real_world/nab/combined_windows.json
+```
+
+### Real-World Outputs
+
+| File | Description |
+|------|-------------|
+| `outputs/real_world_validation_results.csv` | Metrics on real data |
+| `outputs/real_world_validation_plot.png` | CPU time series with detections |
+| `outputs/real_world_validation_summary.txt` | Human-readable summary |
+
+### Disabling real-world validation
+
+To skip NAB validation and only run the synthetic experiment:
+```python
+ENABLE_REAL_WORLD_VALIDATION = False
+```
+
+---
+
 ## Modifying the Pipeline
 
 All key parameters live in **`src/config.py`**. Common adjustments:

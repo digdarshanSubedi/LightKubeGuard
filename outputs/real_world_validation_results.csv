@@ -1,0 +1,2 @@
+Dataset,Samples,Anomaly Prevalence (%),Precision,Recall,F1-Score,FPR,ROC-AUC,Detection Delay (timesteps)
+nab_cpu_utilization_asg_misconfiguration,18031,8.313460151960513,0.5274285714285715,0.6157438292194797,0.5681748230224685,0.05002419549963707,0.8509969425540085,13.0

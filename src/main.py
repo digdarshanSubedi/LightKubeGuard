@@ -28,6 +28,7 @@ from src.evaluation import (
     write_paper_summary,
 )
 from src.visualization import generate_all_figures
+from src.real_world_validation import run_nab_validation
 
 
 def run_pipeline() -> None:
@@ -137,6 +138,21 @@ def run_pipeline() -> None:
             continue
         if os.path.isfile(path):
             print(f"    ✓ {path}")
+
+    print("\n" + "=" * 60 + "\n")
+
+    # ── Optional: Real-World Validation ───────────────────────────
+    if config.ENABLE_REAL_WORLD_VALIDATION:
+        print("\n" + "=" * 60)
+        print("  Real-World Validation (NAB Dataset)")
+        print("=" * 60)
+        nab_results = run_nab_validation()
+        if nab_results:
+            print("\n✓ Real-world validation complete.")
+        else:
+            print("\n[!] Real-world validation incomplete (check file paths).")
+    else:
+        print("\n[Real-World Validation] Disabled in config.ENABLE_REAL_WORLD_VALIDATION")
 
     print("\n" + "=" * 60 + "\n")
 
